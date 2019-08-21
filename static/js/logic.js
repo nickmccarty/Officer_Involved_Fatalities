@@ -9,7 +9,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
   id: "mapbox.streets",
-  accessToken: API_KEY
+  accessToken: process.env.key_one;
 }).addTo(myMap);
 
 // Store API query variables
@@ -41,7 +41,7 @@ d3.csv(dataURL, function(data) {
 
 var city = "Los Angeles";
 var state = "CA";
-var googleGeocodingKey = "&key="+API_KEY2
+var googleGeocodingKey = "&key="+process.env.API_KEY2;
 
 // Assemble API query URL
 var url = googleGeocodingURL+city+state+googleGeocodingKey;
