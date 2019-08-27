@@ -26,7 +26,7 @@ fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", si
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 server = flask.Flask(__name__)
-app = dash.Dash(__name__, server=server)
+app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
     html.H1('Officer-Involved Fatalities'),
