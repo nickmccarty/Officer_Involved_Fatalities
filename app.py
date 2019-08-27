@@ -1,15 +1,41 @@
-from flask import Flask, render_template
-from boto.s3.connection import S3Connection
-import os
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.graph_objs as go
+import plotly_express as px
+import pandas as pd
 
-s3 = S3Connection(os.environ['API_KEY'], os.environ['API_KEY2'])
+########### Set up the chart
 
-app = Flask(__name__)
+px.set_mapbox_access_token('pk.eyJ1Ijoibmlja21jY2FydHkiLCJhIjoiY2pxemppMDZoMGJxeDQ0dDJ5OWxhcXA3dCJ9.k6cGbYHEbY2UDT-D6chFbw')
 
-@app.route("/")
-def index():
-    """Return the homepage."""
-    return render_template("index.html")
+fatalities = pd.read_csv('fatalities_geocoded_with_pop.csv')
+fatalities = fatalities.drop('Unnamed: 0', axis = 1)
 
-if __name__ == "__main__":
-    app.run()
+test = fatalities.groupby(['state', 'race', 'location', 'latitude', 'longitude'])['name'].count()
+test = test.reset_index()
+test = test.rename({'name' : 'count'}, axis = 1)
+test = test.sort_values('count', ascending = False)
+
+fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", size="count",
+                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=20, zoom=3, hover_name = 'location', opacity = .5)
+
+########### Display the chart
+
+app = dash.Dash()
+server = app.server
+
+app.layout = html.Div(children=[
+    html.H1('Officer-Involved Fatalities'),
+    dcc.Graph(
+        id='fatalities',
+        figure=fig
+    ),
+    html.A('Code', href='https://https://github.com/nickmccarty/Officer_Involved_Fatalities'),
+    html.Br(),
+    html.A('Data Source', href='https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv'),
+    ]
+)
+
+if __name__ == '__main__':
+    app.run_server()
