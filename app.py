@@ -4,6 +4,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 import plotly_express as px
 import pandas as pd
+import flask
 
 ########### Set up the chart
 
@@ -22,8 +23,8 @@ fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", si
 
 ########### Display the chart
 
-app = dash.Dash()
-server = app.server
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server)
 
 app.layout = html.Div(children=[
     html.H1('Officer-Involved Fatalities'),
