@@ -34,7 +34,7 @@ app.layout = html.Div(children=[
         id='fatalities',
         figure=fig
     ),
-    html.A('Code', href='https://https://github.com/nickmccarty/Officer_Involved_Fatalities'),
+    html.A('Code', href='https://github.com/nickmccarty/Officer_Involved_Fatalities'),
     html.Br(),
     html.A('Data Source', href='https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv'),
     ]
