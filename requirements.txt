@@ -16,3 +16,7 @@ Werkzeug==0.14.1
 boto==2.49.0
 boto3==1.9.191
 botocore==1.12.191
+dash==1.1.1
+dash-core-components==1.1.1
+dash-html-components==1.0.0
+plotly-express==0.1.8
