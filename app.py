@@ -23,6 +23,8 @@ fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", si
 
 ########### Display the chart
 
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, server=server)
 
