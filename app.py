@@ -35,7 +35,7 @@ description = 'Termed "legal intervention deaths" elsewhere, this map shows the 
 
 app.layout = html.Div(children=[
     html.H1('Officer-Involved Fatalities'),
-    html.H3(description),
+    html.P(description),
     dcc.Graph(
         id='fatalities',
         figure=fig
