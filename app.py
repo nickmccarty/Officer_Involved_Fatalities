@@ -53,13 +53,7 @@ app.layout = html.Div(children=[
     ),
     html.P(caveat),
     html.P('\n'),
-    dcc.Markdown('''
-        >
-        > 'This is a good faith attempt at helping people gain clairty on a serious topic. With this in mind, please\
-        >  send any critiques, observations, or inquiries to NumerateAnalytics@gmail.com.'
-        >
-
-        ''')  
+    html.P(contact),
     html.P('\n'),
     html.A('Code', href='https://github.com/nickmccarty/Officer_Involved_Fatalities'),
     html.Br(),
