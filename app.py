@@ -19,7 +19,7 @@ test = test.rename({'name' : 'count'}, axis = 1)
 test = test.sort_values('count', ascending = False)
 
 fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", size="count",
-                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=20, zoom=3, hover_name = 'location', opacity = .5)
+                  color_continuous_scale=px.colors.cyclical.IceFire, size_min=5, size_max=20, zoom=3, hover_name = 'location', opacity = .5)
 
 ########### Display the chart
 
