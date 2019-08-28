@@ -28,6 +28,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
 
+app.title = "Police Shootings"
+
 description = 'Termed "legal intervention deaths" elsewhere, this map shows the locations\
                and raw counts of deaths (since 2015) caused by on-duty police officers\
                during confrontations with civilians. We can safely assume that this data\
