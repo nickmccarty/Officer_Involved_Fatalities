@@ -32,10 +32,17 @@ app.title = "Police Shootings"
 
 description = 'Termed "legal intervention deaths" elsewhere, this map shows the locations\
                and raw counts of deaths (since 2015) caused by on-duty police officers\
-               during confrontations with civilians. While can safely assume that the fatalities\
+               during confrontations with civilians. While we can safely assume that the fatalities\
                respectfully visualized here do not give us a complete picture of the reality seen in\
-               in the U.S. population, sincere gratitude is extended to John Muyskens and his colleagues\
+               the U.S. population, sincere gratitude is extended to John Muyskens and his colleagues\
                at the Washington Post for putting forth the effort to collect and maintain this dataset.'
+
+caveat = 'As we know, raw death counts on a map do not adequately allow for anyone to gain a true sense of reality\
+          from data that even the FBI only started collecting in earnest circa 2017. It is with this in mind\
+          that funtionality and visualizations will be added incrementally to this page over time.'
+
+contact = 'This is a good faith attempt at helping people gain clairty on a serious topic. With this in mind, please\
+           send any critiques, observations, or inquiries to NumerateAnalytics@gmail.com.'
 
 app.layout = html.Div(children=[
     html.H1('Officer-Involved Fatalities'),
@@ -44,6 +51,8 @@ app.layout = html.Div(children=[
         id='fatalities',
         figure=fig
     ),
+    html.P(caveat),
+    html.P(contact),
     html.A('Code', href='https://github.com/nickmccarty/Officer_Involved_Fatalities'),
     html.Br(),
     html.A('Data Source', href='https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv'),
