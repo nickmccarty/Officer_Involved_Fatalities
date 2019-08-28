@@ -52,9 +52,9 @@ app.layout = html.Div(children=[
         figure=fig
     ),
     html.P(caveat),
-    html.P(),
+    html.P('\n'),
     html.P(contact),
-    html.P(),
+    html.P('\n'),
     html.A('Code', href='https://github.com/nickmccarty/Officer_Involved_Fatalities'),
     html.Br(),
     html.A('Data Source', href='https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv'),
