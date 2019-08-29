@@ -41,7 +41,7 @@ caveat = 'As we know, raw death counts on a map do not adequately allow for anyo
           from data that even the FBI only started collecting in earnest circa 2017. It is with this in mind\
           that funtionality and visualizations will be added incrementally to this page over time.'
 
-contact = 'This is a good faith attempt at helping people gain clairty on a serious topic. With this in mind, please\
+contact = 'This is a good faith attempt at helping people gain clarity on a serious topic. With this in mind, please\
            send any critiques, observations, or inquiries to NumerateAnalytics@gmail.com.'
 
 app.layout = html.Div(children=[
