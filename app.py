@@ -10,13 +10,13 @@ import flask
 
 px.set_mapbox_access_token('pk.eyJ1Ijoibmlja21jY2FydHkiLCJhIjoiY2pxemppMDZoMGJxeDQ0dDJ5OWxhcXA3dCJ9.k6cGbYHEbY2UDT-D6chFbw')
 
-fatalities = pd.read_csv('Data/fatalities_geocoded_with_pop.csv')
-fatalities = fatalities.drop('Unnamed: 0', axis = 1)
+fatalities = pd.read_csv('Data/fatalities_geocoded.csv', index_col = 0)
+# fatalities = fatalities.drop('Unnamed: 0', axis = 1)
 
-test = fatalities.groupby(['state', 'race', 'location', 'latitude', 'longitude'])['name'].count()
-test = test.reset_index()
-test = test.rename({'name' : 'count'}, axis = 1)
-test = test.sort_values('count', ascending = False)
+fatalities = fatalities.groupby(['state', 'race', 'location', 'latitude', 'longitude'])['name'].count()
+fatalities = fatalities.reset_index()
+fatalities = fatalities.rename({'name' : 'count'}, axis = 1)
+fatalities = fatalities.sort_values('count', ascending = False)
 
 fig = px.scatter_mapbox(test, lat="latitude", lon="longitude",  color="race", size="count",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=20, zoom=3, hover_name = 'location', opacity = .5)
