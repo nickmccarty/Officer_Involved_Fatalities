@@ -10,8 +10,8 @@ import flask
 
 px.set_mapbox_access_token('pk.eyJ1Ijoibmlja21jY2FydHkiLCJhIjoiY2pxemppMDZoMGJxeDQ0dDJ5OWxhcXA3dCJ9.k6cGbYHEbY2UDT-D6chFbw')
 
-fatalities = pd.read_csv('Data/fatalities_geocoded.csv', index_col = 0)
-# fatalities = fatalities.drop('Unnamed: 0', axis = 1)
+fatalities = pd.read_csv('Data/fatalities_geocoded.csv')
+fatalities = fatalities.drop('Unnamed: 0', axis = 1)
 
 fatalities = fatalities.groupby(['state', 'race', 'location', 'latitude', 'longitude'])['name'].count()
 fatalities = fatalities.reset_index()
