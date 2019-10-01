@@ -1,4 +1,4 @@
 # Officer_Involved_Fatalities
-Interactive web app created with Mapbox and Google APIs, as well as WaPo-collected data
+An interactive web app created with Mapbox and Google APIs from data collected by the Washington Post.
 
-[Link](http://officer-involved-fatalities.herokuapp.com/)
+[Link](http://officer-involved-fatalities.herokuapp.com/) to web app.
